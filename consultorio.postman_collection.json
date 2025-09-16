@@ -1,0 +1,187 @@
+{
+  "info": {
+    "name": "Consultório Médico",
+    "_postman_id": "pweb1-consultorio",
+    "description": "Coleção de testes do backend Laravel para o sistema de consultório",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Pacientes",
+      "item": [
+        {
+          "name": "Listar Pacientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/pacientes",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "pacientes"]
+            }
+          }
+        },
+        {
+          "name": "Criar Paciente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"João Silva\",\n  \"email\": \"joao@email.com\",\n  \"telefone\": \"999999999\",\n  \"data_nascimento\": \"1990-01-01\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/pacientes",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "pacientes"]
+            }
+          }
+        },
+        {
+          "name": "Mostrar Paciente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/pacientes/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "pacientes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Paciente",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"João Silva Atualizado\",\n  \"email\": \"joao@email.com\",\n  \"telefone\": \"988888888\",\n  \"data_nascimento\": \"1990-01-01\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/pacientes/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "pacientes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar Paciente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/pacientes/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "pacientes", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Médicos",
+      "item": [
+        {
+          "name": "Criar Médico",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Dra. Ana Souza\",\n  \"email\": \"ana@email.com\",\n  \"telefone\": \"988877766\",\n  \"crm\": \"12345\",\n  \"especialidade\": \"Cardiologia\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/medicos",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "medicos"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Agendas",
+      "item": [
+        {
+          "name": "Criar Agenda",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patient_id\": 1,\n  \"doctor_id\": 1,\n  \"data_hora\": \"2025-09-10 14:00:00\",\n  \"observacoes\": \"Primeira consulta\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/agendas",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "agendas"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exames",
+      "item": [
+        {
+          "name": "Criar Exame",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patient_id\": 1,\n  \"nome\": \"Exame de Sangue\",\n  \"data\": \"2025-09-12\",\n  \"resultado\": \"Normal\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/exames",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "exames"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Prontuários",
+      "item": [
+        {
+          "name": "Criar Prontuário",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patient_id\": 1,\n  \"historico\": \"Paciente com histórico de hipertensão.\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/api/prontuarios",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8080",
+              "path": ["api", "prontuarios"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
